@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.deets {
+  background-color: lightblue;
+  border-style: outset;
+  padding: 10px;
+  width: 17.5%;
+}
+</style>
+</head>
+<body>
+
+<h1>All Shelters</h1>
+
+<% @shelters.each do |shelter| %>
+  <div class="deets">
+
+    <h4><%= shelter.name %></h4>
+    <p>
+      <%= button_to 'Show', "/shelters/#{shelter.id}", method: :get %>
+      <%= button_to 'Edit', "/shelters/#{shelter.id}/edit", method: :get %>
+      <%= button_to 'Delete', "/shelters/#{shelter.id}", method: :delete %>
+    </p>
+  </div>
+  <br>
+<% end %>
+<%= button_to 'New Shelter', '/shelters/new' %>

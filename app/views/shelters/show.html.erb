@@ -1,0 +1,8 @@
+<h1><%= @shelter.name %></h1>
+
+<h4><%= @shelter.address %></h4>
+<h4><%= "#{@shelter.city}, #{@shelter.state} #{@shelter.zip}" %></h4>
+
+<%= button_to "Pets", "/shelters/#{@shelter.id}/pets", method: :get %>
+
+<%= link_to "Back", shelters_path %>
