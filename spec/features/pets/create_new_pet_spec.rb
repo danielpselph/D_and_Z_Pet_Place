@@ -7,7 +7,7 @@ RSpec.describe "create shelter pet", type: :feature do
         address: "42 Wallaby Way",
         city: "Sydney",
         state: "OZ",
-        zip: "12345"
+        zip: "12345",
       )
       shelter_2 = Shelter.create(name: "KILL SHELTER no. 666",
         address: "11 Pine Street",
@@ -54,11 +54,23 @@ RSpec.describe "create shelter pet", type: :feature do
         status: "Claimed"
         )
 
-      visit "/shelters/32/pets"
+      visit "/shelters/#{shelter_1.id}/pets"
 
-      click_button 'Create Pet'
+      click_on "Create Pet"
 
-      expect(page).to have_xpath("/shelters/32/pets/")
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")
+
+      fill_in 'image', with: 'https://image.shutterstock.com/image-photo/beagle-running-over-green-meadow-600w-1563583912.jpg'
+      fill_in 'name', with: 'Marcus'
+      fill_in 'description', with: 'Gross lookin dawg'
+      fill_in 'age', with: '3'
+      fill_in 'sex', with: 'F'
+
+      click_on "Create Pet"
+
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
+
+      expect(page).to have_content("Marcus")
     end
   end
 end
