@@ -12,8 +12,10 @@ RSpec.describe "pets index page", type: :feature do
       pet_1 = Pet.create(name: "Fido",
         age: "6 weeks",
         sex: "M",
+        description: "Absolute unit.",
         image: "https://nationalpostcom.files.wordpress.com/2019/12/tarzan-2.jpg?quality=80&strip=all&w=780&zoom=2",
-        shelter_id: "#{shelter_3.id}"
+        shelter_id: "#{shelter_3.id}",
+        status: "It's complicated"
         )
 
       visit "/pets"
