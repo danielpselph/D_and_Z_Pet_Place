@@ -17,13 +17,12 @@
 <h1>All Pets</h1>
 
 <% @pets.each do |pet| %>
-  <a href="/pets/#{pet.id}">
   <div class="profile">
 
 
     <img src=<%= pet.image %> alt="Fido bein cute af" width="250">
-  ]
-    <h4><%= pet.name %></h4>
+
+    <h4>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h4>
     <p>
       Age:
       <%= pet.age %><br>
@@ -34,5 +33,4 @@
     </p>
     <br>
   </div>
-  </a>
 <% end %>
