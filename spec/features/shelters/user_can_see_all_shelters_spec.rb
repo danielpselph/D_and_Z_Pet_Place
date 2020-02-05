@@ -12,15 +12,6 @@ RSpec.describe "shelters index page", type: :feature do
     end
   end
 
-# User Story 13, Shelter Update From Shelter Index Page
-
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to edit that shelter's info
-# When I click the link
-# I should be taken to that shelters edit page where I can update its information just like in User Story 5
-
-
   it 'When I visit the shelter index page, next to every shelter I see a link to edit that shelters info' do
 
     shelter_1 = Shelter.create(name: "Shelter 1", address: "Place", city: "Metropolis", state: "Denial", zip: "90000")
@@ -33,6 +24,15 @@ RSpec.describe "shelters index page", type: :feature do
     end
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
+    
+    visit '/shelters'
+
+    within "#shelter-#{shelter_1.id}" do
+      expect(page).to have_button("Delete")
+      click_on "Delete"
+    end
+
+    expect(current_path).to eq("/shelters")
 
   end 
 end
