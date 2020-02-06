@@ -13,9 +13,12 @@
 </style>
 </head>
 <body>
+  <%= link_to "Back to Shelters", shelters_path %><br>
+  <%= link_to "Back to Pets", pets_path %><br>
 
-<h1>Pets from <%= @shelter.name %></h1>
+<h1>Pets from <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
+<%= button_to "Create Pet", "pets/new", method: :get%><br>
 <% @shelter.pets.each do |pet| %>
   <div class="profile">
 
@@ -29,5 +32,5 @@
     </p>
     <br>
   </div>
+<br>
 <% end %>
-<%= button_to "Create Pet", "pets/new", method: :get%>

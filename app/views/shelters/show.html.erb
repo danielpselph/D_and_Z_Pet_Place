@@ -1,4 +1,7 @@
-<h1><%= @shelter.name %></h1>
+<%= link_to "Back to Shelters", shelters_path %><br>
+<%= link_to "Back to Pets", pets_path %><br>
+
+<h1>Name: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
 <h4><%= @shelter.address %></h4>
 <h4><%= "#{@shelter.city}, #{@shelter.state} #{@shelter.zip}" %></h4>
@@ -8,7 +11,3 @@
 <%= button_to "Edit", "/shelters/#{@shelter.id}/edit", method: :get %>
 
 <%= button_to "Delete", "/shelters/#{@shelter.id}", method: :destroy %>
-
-
-<%= link_to "Back", shelters_path %>
-

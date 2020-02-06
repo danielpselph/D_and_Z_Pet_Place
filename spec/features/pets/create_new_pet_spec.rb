@@ -56,6 +56,9 @@ RSpec.describe "create shelter pet", type: :feature do
 
       visit "/shelters/#{shelter_1.id}/pets"
 
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       click_on "Create Pet"
 
       expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")
