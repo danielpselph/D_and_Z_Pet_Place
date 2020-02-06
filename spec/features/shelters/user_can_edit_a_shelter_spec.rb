@@ -8,32 +8,35 @@
 
 require 'rails_helper'
 
-describe 'As a visitor' do 
+describe 'As a visitor' do
     describe 'When I visit shelter show page' do
         before :each do
             @shelter1 = Shelter.create!(name: 'Sebastians',
                                         address: '123 Abc St',
-                                        city: 'Denver', 
-                                        state: 'CO', 
+                                        city: 'Denver',
+                                        state: 'CO',
                                         zip: '90210')
-            @shelter2 = Shelter.create!(name: 'bob', 
-                                        address: '1111 Ash St', 
-                                        city: 'Denver', 
-                                        state: 'CO', 
+            @shelter2 = Shelter.create!(name: 'bob',
+                                        address: '1111 Ash St',
+                                        city: 'Denver',
+                                        state: 'CO',
                                         zip: '80220')
 
         end
 
-    it 'I should see a link to "Edit"' do 
+    it 'I should see a link to "Edit"' do
 
         visit "/shelters/#{@shelter2.id}"
+
+        expect(page).to have_link("Back to Shelters")
+        expect(page).to have_link("Back to Pets")
 
             expect(current_path).to eq("/shelters/#{@shelter2.id}")
 
             expect(page).to have_button("Edit")
 
             click_on "Edit"
-            
+
             expect(current_path).to eq("/shelters/#{@shelter2.id}/edit")
 
             expect(page).to have_content("Name")

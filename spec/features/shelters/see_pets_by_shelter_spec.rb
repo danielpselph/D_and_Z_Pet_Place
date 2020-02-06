@@ -20,6 +20,9 @@ RSpec.describe "shelter pet index page", type: :feature do
 
       visit "/shelters/#{shelter_3.id}/pets"
 
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       expect(page).to have_content(shelter_3.name)
       expect(page).to have_content("Fido")
       expect(page).to have_content("6 weeks")
