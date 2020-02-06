@@ -30,6 +30,10 @@ RSpec.describe "new shelter page", type: :feature do
       )
 
       visit "/shelters/#{shelter_1.id}"
+
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       expect(page).to have_content("STANKY dawgs")
       expect(page).to have_content("42 Wallaby Ave")
       expect(page).to have_content("Sydney")

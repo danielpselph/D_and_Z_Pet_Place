@@ -20,6 +20,9 @@ RSpec.describe "pets index page", type: :feature do
 
       visit "/pets"
 
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       expect(page).to have_content(pet_1.name)
       # expect(page).to have_link("New Shelter", :href=>"/shelters/new")
     end
@@ -49,7 +52,7 @@ RSpec.describe "pets index page", type: :feature do
       end
 
       expect(current_path).to eq("/pets/#{pet_1.id}/edit")
-      
+
       visit '/pets'
 
       within "#pet-#{pet_1.id}" do

@@ -20,6 +20,9 @@ RSpec.describe 'Pet Update Page', type: :feature do
 
       visit "/pets/#{pet_1.id}/edit"
 
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       fill_in 'name', with: "Newman"
       fill_in 'image', with: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ23jP_NPlSrtXbMTm-GW7LH3-isvLy5pWrMRfbE_8-thYC1Iz9"
       fill_in 'description', with: "Newmaaan"

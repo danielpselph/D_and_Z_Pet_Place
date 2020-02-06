@@ -21,11 +21,15 @@ RSpec.describe "shelter id page", type: :feature do
 
       visit "/shelters/#{shelter_1.id}"
 
+      expect(page).to have_link("Back to Shelters")
+      expect(page).to have_link("Back to Pets")
+
       expect(page).to have_content(shelter_1.name)
       expect(page).to have_content(shelter_1.address)
       expect(page).to have_content(shelter_1.city)
       expect(page).to have_content(shelter_1.state)
       expect(page).to have_content(shelter_1.zip)
+      expect(page).to have_button("Pets")
       expect(page).to have_button("Edit")
       expect(page).to have_button("Delete")
 
