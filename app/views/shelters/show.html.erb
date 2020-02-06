@@ -5,4 +5,10 @@
 
 <%= button_to "Pets", "/shelters/#{@shelter.id}/pets", method: :get %>
 
+<%= button_to "Edit", "/shelters/#{@shelter.id}/edit", method: :get %>
+
+<%= button_to "Delete", "/shelters/#{@shelter.id}", method: :destroy %>
+
+
 <%= link_to "Back", shelters_path %>
+
