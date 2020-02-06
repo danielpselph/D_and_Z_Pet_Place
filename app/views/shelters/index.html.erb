@@ -11,13 +11,16 @@
 </style>
 </head>
 <body>
+  <%= link_to "Back to Shelters", shelters_path %><br>
+  <%= link_to "Back to Pets", pets_path %><br>
 
 <h1>All Shelters</h1>
 
 <% @shelters.each do |shelter| %>
   <div class="deets">
   <section id="shelter-<%= shelter.id %>">
-    <h4><%= shelter.name %></h4>
+    <h4>Name: <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h4>
+    <p>
     <p>
       <%= button_to 'Show', "/shelters/#{shelter.id}", method: :get %>
       <%= button_to 'Edit', "/shelters/#{shelter.id}/edit", method: :get %>
@@ -28,5 +31,3 @@
   <br>
 <% end %>
 <%= button_to "New Shelter", '/shelters/new', method: :get %>
-
-
