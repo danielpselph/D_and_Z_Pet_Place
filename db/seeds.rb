@@ -59,3 +59,13 @@ pet_4 = Pet.create(name: "Brutus",
   shelter_id: "#{shelter_2.id}",
   status: "Claimed"
   )
+  @review_1 = Review.create(title: "Broken Dog",
+  rating: 1,
+  content: "The dog you sold me sucks",
+  shelter_id: "#{shelter_1.id}",
+  image: " ")
+@review_2 = Review.create(title: "Ugly Dog",
+  rating: 2,
+  content: "The dog you sold is ugly",
+  shelter_id: "#{shelter_1.id}",
+  image: " ")

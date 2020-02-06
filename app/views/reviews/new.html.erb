@@ -1,0 +1,18 @@
+<%= link_to "Back to Shelters", shelters_path %><br>
+<%= link_to "Back to Pets", pets_path %><br>
+
+<h1>New Review</h1>
+
+<%= form_tag "/shelters/#{@shelter.id}/reviews" do %>
+  <%= label_tag :title %>:<br>
+  <%= text_field_tag :title %><br>
+  <%= label_tag :rating %>:<br>
+  <%= text_field_tag :rating %><br>
+  <%= label_tag :content %>:<br>
+  <%= text_field_tag :content %><br>
+  <%= label_tag :image %>:<br>
+  <%= text_field_tag :image %><br>
+  <%= submit_tag "Add Review" %><br>
+<% end %><br>
+
+<%= link_to "Back", shelters_path %>
