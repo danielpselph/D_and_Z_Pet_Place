@@ -6,8 +6,16 @@ class ReviewsController < ApplicationController
 
     def create
       # binding.pry
-        review = Review.create(review_params)
-        redirect_to "/shelters/#{review.shelter.id}"
+      @shelter = Shelter.find(params[:shelter_id])
+      review = Review.new(review_params)
+      # redirect_to "/shelters/#{review.shelter.id}"
+        if review.save
+          redirect_to "/shelters/#{@shelter.id}"
+          # redirect_to "/shelters/#{params[:id]}"
+        else
+          flash[:notice] = "All fields must be completed to submit review."
+          render :new
+        end
     end
 
     private
