@@ -55,11 +55,5 @@ RSpec.describe "When a user adds pets to their favorite" do
 
       expect(page).to have_content("Favorites: 2")
     end
-
-    it "adds a song that hasn't been added yet" do
-      subject.add_pet('3')
-
-      expect(subject.contents).to eq({'1' => 2, '2' => 3, '3' => 1})
-    end
   end
 end

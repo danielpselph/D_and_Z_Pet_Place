@@ -20,6 +20,12 @@ RSpec.describe Favorites do
 
       expect(subject.contents).to eq({'1' => 3, '2' => 4})
     end
+
+    it "adds a song that hasn't been added yet" do
+      subject.add_pet('3')
+
+      expect(subject.contents).to eq({'1' => 2, '2' => 3, '3' => 1})
+    end
   end
 
   describe "#count_of" do
