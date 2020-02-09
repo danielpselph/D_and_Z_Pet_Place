@@ -13,7 +13,7 @@
 <body>
   <%= link_to "Back to Shelters", shelters_path %><br>
   <%= link_to "Back to Pets", pets_path %><br>
-
+<p>Favorites: <%= favorites.total_count %></p>
 <h1>All Shelters</h1>
 
 <% @shelters.each do |shelter| %>

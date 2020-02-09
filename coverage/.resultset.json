@@ -230,12 +230,49 @@
           1,
           1,
           null,
+          1,
+          null,
           null
         ]
       },
       "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/app/helpers/application_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/spec/features/pets/can_delete_pet_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -831,6 +868,65 @@
           null
         ]
       },
+      "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/spec/models/favorites_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          3,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/app/models/favorites.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          44,
+          null,
+          null,
+          1,
+          38,
+          null,
+          null,
+          1,
+          5,
+          null,
+          null,
+          1,
+          9,
+          null,
+          null
+        ]
+      },
       "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/spec/models/pet_spec.rb": {
         "lines": [
           1,
@@ -928,7 +1024,7 @@
           1,
           null,
           1,
-          5,
+          10,
           null,
           null,
           1,
@@ -973,6 +1069,29 @@
         "lines": [
           1,
           1,
+          null,
+          1,
+          null,
+          1,
+          46,
+          null,
+          null
+        ]
+      },
+      "/Users/zeke/turing/2module/projects/D_and_Z_Pet_Place/app/controllers/favorites_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          null,
+          null,
           null
         ]
       },
@@ -1063,6 +1182,6 @@
         ]
       }
     },
-    "timestamp": 1581033276
+    "timestamp": 1581284814
   }
 }

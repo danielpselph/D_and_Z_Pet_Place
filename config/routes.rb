@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #root
   get '/', to: 'shelters#index'
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/shelters', to: 'shelters#index'
   get '/shelters/new', to: 'shelters#new'
@@ -23,5 +23,7 @@ Rails.application.routes.draw do
   post '/shelters/:shelter_id/pets/new', to: 'pets#create'
   patch '/pets/:id/edit', to: 'pets#update'
   delete '/pets/:id', to: "pets#destroy"
+
+  patch '/favorites/:pet_id', to: 'favorites#update'
 
 end

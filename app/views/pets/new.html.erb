@@ -1,6 +1,6 @@
 <%= link_to "Back to Shelters", shelters_path %><br>
 <%= link_to "Back to Pets", pets_path %><br>
-
+<p>Favorites: <%= favorites.total_count %></p>
 <h1>Create New Pet</h1><br>
 
 <%= form_tag("/shelters/#{@shelter_id}/pets/new") do%>

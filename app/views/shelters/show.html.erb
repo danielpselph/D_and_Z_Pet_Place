@@ -1,5 +1,6 @@
 <%= link_to "Back to Shelters", shelters_path %><br>
 <%= link_to "Back to Pets", pets_path %><br>
+<p>Favorites: <%= favorites.total_count %></p>
 
 <h1>Name: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
@@ -26,6 +27,6 @@
     </p>
 
   </section>
-  
+
   <br>
 <% end %>

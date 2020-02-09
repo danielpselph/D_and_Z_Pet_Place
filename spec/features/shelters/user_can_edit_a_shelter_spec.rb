@@ -8,7 +8,7 @@
 
 require 'rails_helper'
 
-describe 'As a visitor' do
+RSpec.describe 'As a visitor' do
     describe 'When I visit shelter show page' do
         before :each do
             @shelter1 = Shelter.create!(name: 'Sebastians',
