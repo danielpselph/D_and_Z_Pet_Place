@@ -1,6 +1,4 @@
-<%= link_to "Back to Shelters", shelters_path %><br>
-<%= link_to "Back to Pets", pets_path %><br>
-<p>Favorites: <%= favorites.total_count %></p>
+
 <%= image_tag "#{@pet.image}" %>
 
 <p>Name: <%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %></p>
@@ -10,3 +8,4 @@
 <p>Status: <%= @pet.status %> </p>
 <%= button_to 'Edit Pet', "/pets/#{@pet.id}/edit", method: :get %>
 <%= button_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+<%= button_to "Favorite Pet", "/favorites/#{@pet.id}", method: :patch %>

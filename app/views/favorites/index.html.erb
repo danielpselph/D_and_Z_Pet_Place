@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.profile {
-  float: left;
-  margin-right: 5px;
-  background-color: lightyellow;
-  border-style: outset;
-  padding: 10px;
-  width: 250px;
-}
-</style>
-</head>
 <body>
+  <%= link_to "Back to Shelters", shelters_path %><br>
+  <%= link_to "Back to Pets", pets_path %><br>
+  <p>Favorites: <%= favorites.total_count %></p>
 
-
-<h1>All Pets</h1>
+<h1>All Favorites</h1>
 
 <% @pets.each do |pet| %>
   <div class="profile">
