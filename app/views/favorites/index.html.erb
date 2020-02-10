@@ -1,7 +1,6 @@
 <body>
   <%= link_to "Back to Shelters", shelters_path %><br>
   <%= link_to "Back to Pets", pets_path %><br>
-  <p>Favorites: <%= favorites.total_count %></p>
 
 <h1>Favorites List</h1>
 
@@ -15,6 +14,7 @@
       <img src=<%= pet.image %> alt="Dog pic" width="250">
 
       <h4>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h4>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}?remove=true", method: :patch %>
       <br>
     </section>
   <% end %>
