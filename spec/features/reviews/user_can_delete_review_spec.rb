@@ -34,9 +34,9 @@ RSpec.describe "delete review page", type: :feature do
                 click_on "Delete Review"
             end
 
-            expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/destroy")
+            expect(current_path).to eq("/shelters/#{@shelter_1.id}")
             expect(page).to_not have_content(@review_1.title)
-            expect(page).to_not have_content(@review_1.rating)
+            # expect(page).to_not have_content(@review_1.rating)
             expect(page).to_not have_content(@review_1.content)
         end
 
