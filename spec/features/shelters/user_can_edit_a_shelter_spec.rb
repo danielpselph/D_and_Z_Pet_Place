@@ -28,8 +28,8 @@ RSpec.describe 'As a visitor' do
 
         visit "/shelters/#{@shelter2.id}"
 
-        expect(page).to have_link("Back to Shelters")
-        expect(page).to have_link("Back to Pets")
+        expect(page).to have_button("Back to Shelters")
+        expect(page).to have_button("Back to Pets")
 
             expect(current_path).to eq("/shelters/#{@shelter2.id}")
 

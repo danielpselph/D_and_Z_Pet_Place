@@ -3,29 +3,19 @@
   <%= link_to "Back to Pets", pets_path %><br>
   <p>Favorites: <%= favorites.total_count %></p>
 
-<h1>All Favorites</h1>
+<h1>Favorites List</h1>
 
-<% @pets.each do |pet| %>
-  <div class="profile">
-  <section id= "pet-<%= pet.id%>">
+<% if @pets == nil || @pets == 0 %>
+  <h2>No pets favorited.</h2>
+<% else %>
+  <% @pets.each do |pet| %>
 
+    <section id= "pet-<%= pet.id %>">
 
-    <img src=<%= pet.image %> alt="Fido bein cute af" width="250">
+      <img src=<%= pet.image %> alt="Dog pic" width="250">
 
-    <h4>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h4>
-    <p>
-      Age:
-      <%= pet.age %><br>
-      Sex:
-      <%= pet.sex %><br>
-      Shelter:
-      <%= pet.shelter.name %>
-    </p>
-    <br>
-    <%= button_to 'Edit', "/pets/#{pet.id}/edit", method: :get %>
-    <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
-    <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
-
-  </section>
-  </div>
-<% end %>
+      <h4>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h4>
+      <br>
+    </section>
+  <% end %>
+<% end  %>

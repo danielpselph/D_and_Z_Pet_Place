@@ -38,22 +38,26 @@ RSpec.describe "When a user adds pets to their favorite" do
       expect(page).to have_content("#{@pet_1.name} is now in your Favorites.")
     end
 
-    it "correctly adds up favorited songs" do
+    it "correctly adds up favorited pets" do
       visit "/pets"
 
-      expect(page).to have_content("Favorites: 0")
+
+      expect(page).to have_button("Favorites: 0")
 
       within("#pet-#{@pet_1.id}") do
         click_button "Favorite Pet"
       end
+      # save_and_open_page
 
-      expect(page).to have_content("")
+      expect(page).to have_button("Favorites: 1")
+
+      click_button "Back to Pets"
 
       within("#pet-#{@pet_3.id}") do
         click_button "Favorite Pet"
       end
 
-      expect(page).to have_content("Favorites: 2")
+      expect(page).to have_button("Favorites: 2")
     end
   end
 end
