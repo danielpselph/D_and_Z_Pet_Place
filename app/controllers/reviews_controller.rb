@@ -18,6 +18,12 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def edit 
+      # binding.pry
+      @shelter = Shelter.find(params[:shelter_id])
+      @review = Review.find(params[:review_id])
+    end
+
     private
 
       def review_params
