@@ -27,4 +27,12 @@ class FavoritesController < ApplicationController
       @pets = Pet.find(session[:favorites])
     end
   end
+
+  def destroy_all
+    # require "pry"; binding.pry
+    session[:favorites] = favorites.contents
+    favorites.contents.clear
+    flash[:notice] = "Your Favorites list has been cleared."
+    redirect_back(fallback_location: "/pets")
+  end
 end
