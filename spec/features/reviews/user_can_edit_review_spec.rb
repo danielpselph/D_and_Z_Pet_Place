@@ -21,37 +21,48 @@ RSpec.describe "shelter id page", type: :feature do
                                         image: " ")
         end
 
-        it "has a link to edit shelter" do
+        it "has a link to edit review" do
 
-            visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}"
+            visit "/shelters/#{@shelter_1.id}"
 
-            expect(page).to have_link("Edit Shelter")
             expect(page).to have_content(@review_1.title)
             expect(page).to have_content(@review_1.rating)
             expect(page).to have_content(@review_1.content)
 
-            click_on "Edit Shelter"
+            within "#review-#{@review_1.id}" do
+                expect(page).to have_link("Edit Review")
+                click_on "Edit Review"
+            end
 
             expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit")
-
         end  
 
+        it 'will display and error message if user does not enter all required info and returned to edit page' do 
 
+            visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit"
+    
+            fill_in :title, with: "New Title"
+            fill_in :rating, with: 3
+            fill_in :content, with: ""
+
+            click_on "Add Review"
+    
+            # within "#review-#{@review_1.id}" do
+            #     expect(page).to have_link("Edit Review")
+            #     click_on "Edit Review"
+            # end
+    
+            # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+            expect(page).to have_content("All fields must be completed to submit review.")  
+            # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+            expect(page).to have_button("Add Review") 
+        end
     end  
 end
 
-
-# User Story 5, Edit a Shelter Review
+# User Story 6, Edit a Shelter Review, cont.
 
 # As a visitor,
-# When I visit a shelter's show page
-# I see a link to edit the shelter review next to each review.
-# When I click on this link, I am taken to an edit shelter review path
-# On this new page, I see a form that includes that review's pre populated data:
-# - title
-# - rating
-# - content
-# - image
-# I can update any of these fields and submit the form.
-# When the form is submitted, I should return to that shelter's show page
-# And I can see my updated review
+# When I fail to enter a title, a rating, and/or content in the edit shelter review form, but still try to submit the form
+# I see a flash message indicating that I need to fill in a title, rating, and content in order to edit a shelter review
+# And I'm returned to the edit form to edit that review

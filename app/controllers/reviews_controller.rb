@@ -24,6 +24,18 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:review_id])
     end
 
+    def update 
+      @shelter = Shelter.find(params[:shelter_id])
+      @review = Review.find(params[:review_id])
+      @review.update(review_params)
+        if @review.save
+          redirect_to "/shelters/#{@shelter.id}"
+        else 
+          flash[:notice] = "All fields must be completed to submit review."
+          render :edit
+        end
+    end
+
     private
 
       def review_params
