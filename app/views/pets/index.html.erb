@@ -36,7 +36,13 @@
     <br>
     <%= button_to 'Edit', "/pets/#{pet.id}/edit", method: :get %>
     <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
-    <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+    <% if session[:favorites] == nil %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+    <% elsif session[:favorites].include?(pet.id) %>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}", method: :delete %>
+    <% else %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+    <% end %>
 
   </section>
   </div>

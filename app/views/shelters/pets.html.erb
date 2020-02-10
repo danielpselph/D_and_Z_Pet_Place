@@ -32,7 +32,16 @@
       <%= pet.sex %><br>
     </p>
     <br>
-    <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+
+    <% if session[:favorites] == nil %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+    <% elsif session[:favorites].include?(pet.id) %>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}", method: :patch %>
+    <% else %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}", method: :patch %>
+    <% end %>
+
+
   </div>
 </section>
 <br>
