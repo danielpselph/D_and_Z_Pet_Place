@@ -8,7 +8,7 @@
 
 require 'rails_helper'
 
-describe 'As a visitor' do
+RSpec.describe 'As a visitor' do
     describe 'When I visit shelter show page' do
         before :each do
             @shelter1 = Shelter.create!(name: 'Sebastians',
@@ -28,8 +28,8 @@ describe 'As a visitor' do
 
         visit "/shelters/#{@shelter2.id}"
 
-        expect(page).to have_link("Back to Shelters")
-        expect(page).to have_link("Back to Pets")
+        expect(page).to have_button("Back to Shelters")
+        expect(page).to have_button("Back to Pets")
 
             expect(current_path).to eq("/shelters/#{@shelter2.id}")
 

@@ -9,11 +9,22 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <%= button_to "Back to Shelters", "/shelters", method: :get, class: "nav-btn" %>
+        <%= button_to "Back to Pets", "/pets", method: :get, class: "nav-btn" %>
+        <%= button_to "Favorites: #{favorites.total_count}", "/favorites", method: :get, class: "nav-btn" %>
+      </nav>
+    </header>
+
     <% flash.each do |type, message| %>
+    <section class=<%= type %>>
       <p><%= message %></p>
+    </section>
     <% end %>
+
     <%= yield %>
   </body>
 
-  
+
 </html>

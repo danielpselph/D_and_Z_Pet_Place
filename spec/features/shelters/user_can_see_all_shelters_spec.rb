@@ -7,8 +7,8 @@ RSpec.describe "shelters index page", type: :feature do
 
       visit "/shelters"
 
-      expect(page).to have_link("Back to Shelters")
-      expect(page).to have_link("Back to Pets")
+      expect(page).to have_button("Back to Shelters")
+      expect(page).to have_button("Back to Pets")
 
       expect(page).to have_content(shelter_1.name)
       expect(page).to have_button("New Shelter")
@@ -21,8 +21,8 @@ RSpec.describe "shelters index page", type: :feature do
 
     visit '/shelters'
 
-    expect(page).to have_link("Back to Shelters")
-    expect(page).to have_link("Back to Pets")
+    expect(page).to have_button("Back to Shelters")
+    expect(page).to have_button("Back to Pets")
 
     within "#shelter-#{shelter_1.id}" do
       expect(page).to have_button("Edit")
@@ -33,8 +33,8 @@ RSpec.describe "shelters index page", type: :feature do
 
     visit '/shelters'
 
-    expect(page).to have_link("Back to Shelters")
-    expect(page).to have_link("Back to Pets")
+    expect(page).to have_button("Back to Shelters")
+    expect(page).to have_button("Back to Pets")
 
     within "#shelter-#{shelter_1.id}" do
       expect(page).to have_button("Delete")

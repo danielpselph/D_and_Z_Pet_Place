@@ -13,8 +13,7 @@
 </style>
 </head>
 <body>
-  <%= link_to "Back to Shelters", shelters_path %><br>
-  <%= link_to "Back to Pets", pets_path %><br>
+
 
 <h1>All Pets</h1>
 
@@ -37,6 +36,14 @@
     <br>
     <%= button_to 'Edit', "/pets/#{pet.id}/edit", method: :get %>
     <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
+    <% if session[:favorites] == nil %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}?add=true", method: :patch %>
+    <% elsif session[:favorites].include?(pet.id) %>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}?remove=true", method: :patch %>
+    <% else %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}?add=true", method: :patch %>
+    <% end %>
+
   </section>
   </div>
 <% end %>

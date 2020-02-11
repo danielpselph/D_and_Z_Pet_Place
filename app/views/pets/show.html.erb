@@ -1,5 +1,3 @@
-<%= link_to "Back to Shelters", shelters_path %><br>
-<%= link_to "Back to Pets", pets_path %><br>
 
 <%= image_tag "#{@pet.image}" %>
 
@@ -10,6 +8,10 @@
 <p>Status: <%= @pet.status %> </p>
 <%= button_to 'Edit Pet', "/pets/#{@pet.id}/edit", method: :get %>
 <%= button_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
-
-
-
+<% if session[:favorites] == nil %>
+  <%= button_to "Favorite Pet", "/favorites/#{@pet.id}?add=true", method: :patch %>
+<% elsif session[:favorites].include?(@pet.id) %>
+  <%=  button_to "Remove from Favorites", "/favorites/#{@pet.id}?remove=true", method: :patch %>
+<% else %>
+  <%= button_to "Favorite Pet", "/favorites/#{@pet.id}?add=true", method: :patch %>
+<% end %>

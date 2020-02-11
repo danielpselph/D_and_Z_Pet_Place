@@ -1,0 +1,22 @@
+<body>
+  <%= link_to "Back to Shelters", shelters_path %><br>
+  <%= link_to "Back to Pets", pets_path %><br>
+  <%= button_to "Remove All Favorites", "/favorites", method: :delete %>
+
+<h1>Favorites List</h1>
+
+<% if @pets == nil || @pets == 0 %>
+  <h2>No pets favorited.</h2>
+<% else %>
+  <% @pets.each do |pet| %>
+
+    <section id= "pet-<%= pet.id %>">
+
+      <img src=<%= pet.image %> alt="Dog pic" width="250">
+
+      <h4>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h4>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}?remove=true", method: :patch %>
+      <br>
+    </section>
+  <% end %>
+<% end  %>

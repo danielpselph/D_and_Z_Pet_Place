@@ -13,13 +13,14 @@
 </style>
 </head>
 <body>
-  <%= link_to "Back to Shelters", shelters_path %><br>
-  <%= link_to "Back to Pets", pets_path %><br>
+
 
 <h1>Pets from <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
 <%= button_to "Create Pet", "pets/new", method: :get%><br>
 <% @shelter.pets.each do |pet| %>
+  <section id="pet-<%= pet.id %>">
+
   <div class="profile">
 
     <img src=<%= pet.image %> alt="Fido bein cute af" width="250">
@@ -31,6 +32,17 @@
       <%= pet.sex %><br>
     </p>
     <br>
+
+    <% if session[:favorites] == nil %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}?add=true", method: :patch %>
+    <% elsif session[:favorites].include?(pet.id) %>
+      <%=  button_to "Remove from Favorites", "/favorites/#{pet.id}?remove=true", method: :patch %>
+    <% else %>
+      <%= button_to "Favorite Pet", "/favorites/#{pet.id}?add=true", method: :patch %>
+    <% end %>
+
+
   </div>
+</section>
 <br>
 <% end %>

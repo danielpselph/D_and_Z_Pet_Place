@@ -20,8 +20,8 @@ RSpec.describe "pets index page", type: :feature do
 
       visit "/pets"
 
-      expect(page).to have_link("Back to Shelters")
-      expect(page).to have_link("Back to Pets")
+      expect(page).to have_button("Back to Shelters")
+      expect(page).to have_button("Back to Pets")
 
       expect(page).to have_content(pet_1.name)
       # expect(page).to have_link("New Shelter", :href=>"/shelters/new")
@@ -29,7 +29,7 @@ RSpec.describe "pets index page", type: :feature do
 
     it "can update and delete pet from pets index page" do
 
-        shelter_3 = Shelter.create(name: "Puppy Love",
+      shelter_3 = Shelter.create(name: "Puppy Love",
         address: "1600 Pennsylvania Avenue",
         city: "Washington",
         state: "DC",

@@ -22,11 +22,11 @@ RSpec.describe "shelter id page", type: :feature do
     end
 
     it "can see shelter attributes" do
- 
+
       visit "/shelters/#{@shelter_1.id}"
 
-      expect(page).to have_link("Back to Shelters")
-      expect(page).to have_link("Back to Pets")
+      expect(page).to have_button("Back to Shelters")
+      expect(page).to have_button("Back to Pets")
 
       expect(page).to have_content(@shelter_1.name)
       expect(page).to have_content(@shelter_1.address)
@@ -39,7 +39,7 @@ RSpec.describe "shelter id page", type: :feature do
     end
 
     it "I see a list of reviews for that shelter" do
-   
+
       visit "/shelters/#{@shelter_1.id}"
 # binding.pry
       within "#review-#{@review_1.id}" do
@@ -60,8 +60,8 @@ RSpec.describe "shelter id page", type: :feature do
 
       visit "/shelters/#{@shelter_1.id}"
 
-        expect(page).to have_link("Add Review") 
-        
+        expect(page).to have_link("Add Review")
+
         click_on "Add Review"
 
         expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
