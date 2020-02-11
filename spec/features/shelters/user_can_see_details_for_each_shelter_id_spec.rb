@@ -1,12 +1,3 @@
-
-# User Story 14, Shelter Delete From Shelter Index Page
-
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to delete that shelter
-# When I click the link
-# I am returned to the Shelter Index Page where I no longer see that shelter
-
 require 'rails_helper'
 
 RSpec.describe "shelter id page", type: :feature do
@@ -93,6 +84,27 @@ RSpec.describe "shelter id page", type: :feature do
         expect(page).to have_content(1)
         expect(page).to have_content("ContentContent")
         # expect(page).to have_content("ImageImage")
+    end
+
+    it "will display error message if reviews fields are not entered and returned to create form" do
+
+      visit "/shelters/#{@shelter_1.id}"
+
+        expect(page).to have_link("Add Review") 
+        
+        click_on "Add Review"
+
+        fill_in :title, with: "TitleTitle"
+        fill_in :rating, with: 1
+        fill_in :content, with: ""
+
+        click_on "Add Review"
+
+        # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+        expect(page).to have_content("All fields must be completed to submit review.")  
+        # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+        expect(page).to have_button("Add Review") 
+
     end
   end
 end
