@@ -44,7 +44,7 @@ RSpec.describe "When a user adds pets to their favorite" do
 
       click_link "Adopt!"
 
-      expect(path).to eq("/adoptions/new")
+      expect(current_path).to eq("/adoptions/new")
 
       check "Fido"
       check "Boo"
@@ -54,7 +54,7 @@ RSpec.describe "When a user adds pets to their favorite" do
       expect(page).to have_content("City")
       expect(page).to have_content("State")
       expect(page).to have_content("Zip")
-      expect(page).to have_content("Phone Number")
+      expect(page).to have_content("Phone")
       expect(page).to have_content("Qualifications")
       fill_in :name, with: "Daniels"
       fill_in :address, with: "321 Bca Ave"
@@ -64,11 +64,11 @@ RSpec.describe "When a user adds pets to their favorite" do
       fill_in :phone, with: "(303)867-5309"
       fill_in :qualifications, with: "I'm a good dog mom"
 
-      click_on "New Application"
+      click_on "Create New Adoption Application"
 
-      expect(path).to eq("/favorites")
+      expect(current_path).to eq("/favorites")
 
-      expect(page).to have_content("Application Submitted!")
+      expect(page).to have_content("Application Created!")
     end
   end
 end
