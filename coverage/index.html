@@ -14,7 +14,7 @@
       <img src="./assets/0.11.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-11T11:39:23-07:00">2020-02-11T11:39:23-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-11T12:15:20-07:00">2020-02-11T12:15:20-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.72
+         1.71
        </span>
     </span> hits/line
     )
@@ -39,12 +39,12 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>51</b> files in total.
+    <b>52</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>697</b> relevant lines,
-    <span class="green"><b>695</b> lines covered</span> and
+    <b>700</b> relevant lines,
+    <span class="green"><b>698</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed. </span>
     (<span class="green">
   99.71%
@@ -68,6 +68,17 @@
       </tr>
     </thead>
     <tbody>
+      
+        <tr class="t-file">
+          <td class="strong t-file__name"><a href="#19a766e667e1936703163a1c9d3f5b63cd94e0d7" class="src_link" title="app/controllers/adoptions_controller.rb">app/controllers/adoptions_controller.rb</a></td>
+          <td class="green strong t-file__coverage">100.0 %</td>
+          <td>7</td>
+          <td>2</td>
+          <td>2</td>
+          <td>0</td>
+          <td>1.0</td>
+          
+        </tr>
       
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#47641fc2f368734307f85a1a988543bb8e612f00" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
@@ -136,7 +147,7 @@
         </tr>
       
         <tr class="t-file">
-          <td class="strong t-file__name"><a href="#244d4a94eaee46b6beb7333d704a818d73d3fb21" class="src_link" title="app/models/application.rb">app/models/application.rb</a></td>
+          <td class="strong t-file__name"><a href="#de7dde13c4e6a74096d2e43317f47ec8bf8b5e72" class="src_link" title="app/models/adoption.rb">app/models/adoption.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
           <td>4</td>
           <td>3</td>
@@ -147,7 +158,7 @@
         </tr>
       
         <tr class="t-file">
-          <td class="strong t-file__name"><a href="#1593545eb930418f7f323ac04aa6883d1784e635" class="src_link" title="app/models/application_pet.rb">app/models/application_pet.rb</a></td>
+          <td class="strong t-file__name"><a href="#503b12d600dfb25a21255efd418c85307ad1bdc6" class="src_link" title="app/models/adoption_pet.rb">app/models/adoption_pet.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
           <td>4</td>
           <td>3</td>
@@ -347,9 +358,9 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#00119a17f66fa378d3caf2326509b5cb25f669cf" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>33</td>
-          <td>25</td>
-          <td>25</td>
+          <td>35</td>
+          <td>26</td>
+          <td>26</td>
           <td>0</td>
           <td>1.0</td>
           
@@ -565,7 +576,7 @@
         </tr>
       
         <tr class="t-file">
-          <td class="strong t-file__name"><a href="#869097451ff5eddf3f97ce5307a1a2ad992271cf" class="src_link" title="spec/models/application_pet_spec.rb">spec/models/application_pet_spec.rb</a></td>
+          <td class="strong t-file__name"><a href="#1d8246f92083d11d0dc8fe5bf7faef44472fd3fb" class="src_link" title="spec/models/adoption_pet_spec.rb">spec/models/adoption_pet_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
           <td>8</td>
           <td>5</td>
@@ -576,7 +587,7 @@
         </tr>
       
         <tr class="t-file">
-          <td class="strong t-file__name"><a href="#4351877b6b9be96d0715646cbf92261602e4cdaa" class="src_link" title="spec/models/applications_spec.rb">spec/models/applications_spec.rb</a></td>
+          <td class="strong t-file__name"><a href="#47816f530bf171da909f4955170012416f8e1123" class="src_link" title="spec/models/adoption_spec.rb">spec/models/adoption_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
           <td>9</td>
           <td>5</td>
@@ -645,6 +656,114 @@
       </div>
 
       <div class="source_files">
+      
+        <div class="source_table" id="19a766e667e1936703163a1c9d3f5b63cd94e0d7">
+  <div class="header">
+    <h3>app/controllers/adoptions_controller.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>2</b> relevant lines.
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class AdoptionsController &lt; ApplicationController</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">    end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
       
         <div class="source_table" id="47641fc2f368734307f85a1a988543bb8e612f00">
   <div class="header">
@@ -3054,9 +3173,9 @@
 </div>
 
       
-        <div class="source_table" id="244d4a94eaee46b6beb7333d704a818d73d3fb21">
+        <div class="source_table" id="de7dde13c4e6a74096d2e43317f47ec8bf8b5e72">
   <div class="header">
-    <h3>app/models/application.rb</h3>
+    <h3>app/models/adoption.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -3087,7 +3206,7 @@
 
             
 
-            <code class="ruby">class Application &lt; ApplicationRecord</code>
+            <code class="ruby">class Adoption &lt; ApplicationRecord</code>
           </li>
         </div>
       
@@ -3098,7 +3217,7 @@
 
             
 
-            <code class="ruby">  has_many :pets, through: :application_pets</code>
+            <code class="ruby">  has_many :pets, through: :adoption_pets</code>
           </li>
         </div>
       
@@ -3109,7 +3228,7 @@
 
             
 
-            <code class="ruby">  has_many :application_pets</code>
+            <code class="ruby">  has_many :adoption_pets</code>
           </li>
         </div>
       
@@ -3129,9 +3248,9 @@
 </div>
 
       
-        <div class="source_table" id="1593545eb930418f7f323ac04aa6883d1784e635">
+        <div class="source_table" id="503b12d600dfb25a21255efd418c85307ad1bdc6">
   <div class="header">
-    <h3>app/models/application_pet.rb</h3>
+    <h3>app/models/adoption_pet.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -3162,7 +3281,7 @@
 
             
 
-            <code class="ruby">class ApplicationPet &lt; ApplicationRecord</code>
+            <code class="ruby">class AdoptionPet &lt; ApplicationRecord</code>
           </li>
         </div>
       
@@ -3173,7 +3292,7 @@
 
             
 
-            <code class="ruby">  belongs_to :application</code>
+            <code class="ruby">  belongs_to :adoption</code>
           </li>
         </div>
       
@@ -3530,7 +3649,7 @@
 
             
 
-            <code class="ruby">  has_many :application_pets</code>
+            <code class="ruby">  has_many :adoption_pets</code>
           </li>
         </div>
       
@@ -3541,7 +3660,7 @@
 
             
 
-            <code class="ruby">  has_many :applications, through: :application_pets</code>
+            <code class="ruby">  has_many :adoptions, through: :adoption_pets</code>
           </li>
         </div>
       
@@ -5802,8 +5921,8 @@
     
 
     <div class="t-line-summary">
-      <b>25</b> relevant lines.
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>26</b> relevant lines.
+      <span class="green"><b>26</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -6168,6 +6287,28 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  get &#39;/adoptions/new&#39;, to: &#39;adoptions#new&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -18310,9 +18451,9 @@
 </div>
 
       
-        <div class="source_table" id="869097451ff5eddf3f97ce5307a1a2ad992271cf">
+        <div class="source_table" id="1d8246f92083d11d0dc8fe5bf7faef44472fd3fb">
   <div class="header">
-    <h3>spec/models/application_pet_spec.rb</h3>
+    <h3>spec/models/adoption_pet_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -18365,7 +18506,7 @@
 
             
 
-            <code class="ruby">RSpec.describe ApplicationPet, type: :model do</code>
+            <code class="ruby">RSpec.describe AdoptionPet, type: :model do</code>
           </li>
         </div>
       
@@ -18387,7 +18528,7 @@
 
             
 
-            <code class="ruby">    it {should belong_to :application}</code>
+            <code class="ruby">    it {should belong_to :adoption}</code>
           </li>
         </div>
       
@@ -18429,9 +18570,9 @@
 </div>
 
       
-        <div class="source_table" id="4351877b6b9be96d0715646cbf92261602e4cdaa">
+        <div class="source_table" id="47816f530bf171da909f4955170012416f8e1123">
   <div class="header">
-    <h3>spec/models/applications_spec.rb</h3>
+    <h3>spec/models/adoption_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -18484,7 +18625,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Application, type: :model do</code>
+            <code class="ruby">RSpec.describe Adoption, type: :model do</code>
           </li>
         </div>
       
@@ -18506,7 +18647,7 @@
 
             
 
-            <code class="ruby">    it { should have_many :application_pets}</code>
+            <code class="ruby">    it { should have_many :adoption_pets}</code>
           </li>
         </div>
       
@@ -18528,7 +18669,7 @@
 
             
 
-            <code class="ruby">    it { should have_many(:pets).through(:application_pets) }</code>
+            <code class="ruby">    it { should have_many(:pets).through(:adoption_pets) }</code>
           </li>
         </div>
       
@@ -19008,7 +19149,7 @@
 
             
 
-            <code class="ruby">    it { should have_many :application_pets}</code>
+            <code class="ruby">    it { should have_many :adoption_pets}</code>
           </li>
         </div>
       
@@ -19019,7 +19160,7 @@
 
             
 
-            <code class="ruby">    it { should have_many(:applications).through(:application_pets) }</code>
+            <code class="ruby">    it { should have_many(:adoptions).through(:adoption_pets) }</code>
           </li>
         </div>
       

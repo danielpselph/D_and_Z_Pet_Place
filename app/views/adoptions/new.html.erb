@@ -1,0 +1,26 @@
+
+<h1>New Adoption Application</h1>
+
+<%= form_tag "/adoptions" do %>
+  <%= @pets.each do |pet| %>
+    <%= check_box_tag 'activated[]', pet.name %>
+  <%= end %>
+
+  <%= label_tag :name %>:<br>
+  <%= text_field_tag :name %><br>
+  <%= label_tag :address %>:<br>
+  <%= text_field_tag :address %><br>
+  <%= label_tag :city %>:<br>
+  <%= text_field_tag :city %><br>
+  <%= label_tag :state %>:<br>
+  <%= text_field_tag :state %><br>
+  <%= label_tag :zip %>:<br>
+  <%= text_field_tag :zip %><br><br>
+  <%= label_tag :phone %>:<br>
+  <%= text_field_tag :phone %><br><br>
+  <%= label_tag :qualifications %>:<br>
+  <%= text_field_tag :qualifications %><br><br>
+  <%= submit_tag "Create New Adoption Application" %><br>
+<% end %><br>
+
+<%= link_to "Back", "/favorites", method: :get %>
