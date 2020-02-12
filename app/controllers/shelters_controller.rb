@@ -16,18 +16,19 @@ class SheltersController < ApplicationController
   end
 
   def create
-    shelter = Shelter.create({
-      name: params[:name],
-      address: params[:address],
-      city: params[:city],
-      state: params[:state],
-      zip: params[:zip],
-      })
-    redirect_to '/shelters'
+    shelter = Shelter.new(shelter_params)
+    if shelter.save
+      redirect_to '/shelters'
+    else 
+      flash[:notice] = shelter.errors.full_messages.to_sentence
+      render :new
+    end
   end
-
+      
   def destroy
     Shelter.destroy(params[:id])
+        # review = Review.find(params[:review_id])
+    # Review.destroy(params[:review_id])
     redirect_to '/shelters'
   end
 
@@ -37,15 +38,13 @@ class SheltersController < ApplicationController
 
   def update
     shelter = Shelter.find(params[:id])
-    # shelter.update(shelter_params)
-    shelter.update({
-      name: params[:name],
-      address: params[:address],
-      city: params[:city],
-      state: params[:state],
-      zip: params[:zip],
-      })
-    redirect_to "/shelters/#{shelter.id}"
+    shelter.update(shelter_params)
+    if shelter.save
+      redirect_to "/shelters/#{shelter.id}"
+    else 
+      flash[:notice] = shelter.errors.full_messages.to_sentence
+      redirect_to "/shelters/#{shelter.id}/edit"
+    end
   end
 
   private
