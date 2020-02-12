@@ -46,8 +46,17 @@ RSpec.describe "When a user adds pets to their favorite" do
 
       expect(current_path).to eq("/adoptions/new")
 
-      check "Fido"
-      check "Boo"
+      expect(page).to have_content("Fido")
+      expect(page).to have_content("Boo")
+
+      within("div#pet-#{@pet_1.id}") do
+        check :adopt_pets_
+      end
+
+      within("div#pet-#{@pet_3.id}") do
+        check :adopt_pets_
+      end
+
 
       expect(page).to have_content("Name")
       expect(page).to have_content("Address")
@@ -69,6 +78,10 @@ RSpec.describe "When a user adds pets to their favorite" do
       expect(current_path).to eq("/favorites")
 
       expect(page).to have_content("Application Created!")
+
+      # save_and_open_page
+      expect(page).to_not have_content("Fido")
+      expect(page).to_not have_content("Boo")
     end
   end
 end

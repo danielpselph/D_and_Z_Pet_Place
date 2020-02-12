@@ -19,11 +19,9 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    # require "pry"; binding.pry
     if session[:favorites] == nil || session[:favorites].empty?
       @pets = nil
     else
-      # require "pry"; binding.pry
       @pets = Pet.find(session[:favorites])
     end
   end
