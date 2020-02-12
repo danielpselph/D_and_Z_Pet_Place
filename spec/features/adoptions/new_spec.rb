@@ -79,9 +79,12 @@ RSpec.describe "When a user adds pets to their favorite" do
 
       expect(page).to have_content("Application Created!")
 
-      # save_and_open_page
-      expect(page).to_not have_content("Fido")
-      expect(page).to_not have_content("Boo")
+      visit "/favorites"
+
+      within("#list_of_favorites") do
+        expect(page).to_not have_content("Fido")
+        expect(page).to_not have_content("Boo")
+      end
     end
   end
 end

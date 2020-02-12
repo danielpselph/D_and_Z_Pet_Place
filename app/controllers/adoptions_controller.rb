@@ -29,6 +29,10 @@ class AdoptionsController < ApplicationController
         end
     end
 
+    def show
+      @adoption = Adoption.find(params[:id])
+    end
+
     private
       def adoption_params
         params.permit(:name,

@@ -4,12 +4,13 @@
   <%= button_to "Remove All Favorites", "/favorites", method: :delete %>
 
 <h1>Favorites List</h1>
+<section id="list_of_favorites">
 
 <% if @pets == nil || @pets == 0 %>
   <h2>No pets favorited.</h2>
 <% else %>
-  <% @pets.each do |pet| %>
 
+  <% @pets.each do |pet| %>
     <section id= "pet-<%= pet.id %>">
 
       <img src=<%= pet.image %> alt="Dog pic" width="250">
@@ -19,5 +20,13 @@
       <br>
     </section>
   <% end %>
+
 <% end  %>
+</section>
 <%= link_to "Adopt!", "/adoptions/new", method: :get %>
+<br><br><br>
+<section id= "pets_with_open_applications">
+  <% @app_pets.uniq.each do |pet| %>
+    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+  <% end %>
+</section>
