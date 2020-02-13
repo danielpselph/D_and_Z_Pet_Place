@@ -14,7 +14,7 @@ describe Shelter, type: :model do
     it { should have_many :reviews}
   end
 
-  describe "shelter methods" do 
+  describe "shelter methods" do
     before :each do
       @shelter_1 = Shelter.create(name: 'Sebastians',
                                 address: '123 Abc St',
@@ -81,9 +81,9 @@ describe Shelter, type: :model do
     end
 
     it ".has_pending_pets?" do
-      expect(@shelter_3.has_pending_pets?).to eq(true)
+      expect(@shelter_3.has_pending_pets?).to eq(false)
     end
-    
-    
+
+
   end
 end
