@@ -52,7 +52,7 @@ describe Shelter, type: :model do
                           description: "Absolute unit.",
                           image: "https://nationalpostcom.files.wordpress.com/2019/12/tarzan-2.jpg?quality=80&strip=all&w=780&zoom=2",
                           shelter_id: "#{@shelter_3.id}",
-                          status: "It's complicated"
+                          status: "pending"
                           )
       @pet_2 = Pet.create(name: "Peter",
                           age: "8 years",
@@ -79,6 +79,11 @@ describe Shelter, type: :model do
     it "can return average rating" do
       expect(@shelter_1.average_rating).to eq(2)
     end
+
+    it ".has_pending_pets?" do
+      expect(@shelter_3.has_pending_pets?).to eq(true)
+    end
+    
     
   end
 end

@@ -1,6 +1,6 @@
 class Shelter < ApplicationRecord
   validates_presence_of :name, :address, :city, :state, :zip
-  has_many :pets
+  has_many :pets, dependent: :destroy
   has_many :reviews, dependent: :destroy
   
   def pet_count
@@ -10,4 +10,13 @@ class Shelter < ApplicationRecord
   def average_rating
     reviews.average(:rating)
   end
+
+  def has_pending_pets?
+    if self.pets.where("status = pending")
+      return true
+    else
+      return false
+    end
+  end
+
 end
