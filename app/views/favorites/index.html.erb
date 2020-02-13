@@ -7,7 +7,7 @@
 <section id="list_of_favorites">
 
 <% if @pets == nil || @pets == 0 %>
-  <h2>No pets favorited.</h2>
+  <h4>No pets favorited.</h4>
 <% else %>
 
   <% @pets.each do |pet| %>
@@ -23,8 +23,10 @@
 
 <% end  %>
 </section>
-<%= link_to "Adopt!", "/adoptions/new", method: :get %>
-<br><br><br>
+<% unless @pets == nil || @pets == 0 %>
+  <%= link_to "Adopt!", "/adoptions/new", method: :get %>
+<% end %>
+<h3>Pets with Open Applications:</h3>
 <section id= "pets_with_open_applications">
   <% @app_pets.uniq.each do |pet| %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>

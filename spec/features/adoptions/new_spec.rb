@@ -41,7 +41,6 @@ RSpec.describe "When a user adds pets to their favorite" do
       end
 
       visit "/favorites"
-
       click_link "Adopt!"
 
       expect(current_path).to eq("/adoptions/new")

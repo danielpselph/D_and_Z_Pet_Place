@@ -58,13 +58,13 @@ RSpec.describe 'As a visitor to favorites index', method: :feature do
     expect(current_path).to eq("/favorites")
 
     within("#pets_with_open_applications") do
-      # require "pry"; binding.pry
       expect(page).to have_content("Fido")
       expect(page).to have_content("Boo")
     end
   end
 
-  it 'should not have adopt button if there are no favorites'
-
-  end 
+  it 'should not have adopt button if there are no favorites' do
+    visit "/favorites"
+    expect(page).to_not have_link("Adopt!")
+  end
 end

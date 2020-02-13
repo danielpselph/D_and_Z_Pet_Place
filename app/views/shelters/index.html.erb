@@ -23,7 +23,7 @@
       <%= button_to 'Show', "/shelters/#{shelter.id}", method: :get %>
       <%= button_to 'Edit', "/shelters/#{shelter.id}/edit", method: :get %>
       <% if shelter.has_pending_pets? == false %>
-        <%= button_to "Delete", "/shelters/#{shelter.id}", method: :destroy %>
+        <%= button_to "Delete", "/shelters/#{shelter.id}", method: :delete %>
       <% end %>
     </p>
   </section>

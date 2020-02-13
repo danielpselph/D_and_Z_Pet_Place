@@ -47,7 +47,6 @@ RSpec.describe "When a user adds pets to their favorite" do
       within("#pet-#{@pet_1.id}") do
         click_button "Favorite Pet"
       end
-      # save_and_open_page
 
       expect(page).to have_button("Favorites: 1")
 
