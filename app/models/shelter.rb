@@ -12,7 +12,6 @@ class Shelter < ApplicationRecord
   end
 
   def has_pending_pets?
-    require "pry"; binding.pry
     if self.pets.find {|pet| pet.status.include?("Pending")}
       return true
     else

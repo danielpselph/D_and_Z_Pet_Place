@@ -10,7 +10,7 @@
 <%= button_to "Edit", "/shelters/#{@shelter.id}/edit", method: :get %>
 <% if @shelter.has_pending_pets? == false %>
   <%= button_to "Delete", "/shelters/#{@shelter.id}", method: :destroy %>
-  <% end %>  
+  <% end %>
 <%= link_to 'Add Review', "/shelters/#{@shelter.id}/reviews/new", method: :get %>
 
 
