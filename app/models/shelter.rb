@@ -2,7 +2,7 @@ class Shelter < ApplicationRecord
   validates_presence_of :name, :address, :city, :state, :zip
   has_many :pets, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  
+
   def pet_count
     pets.count
   end
@@ -12,7 +12,8 @@ class Shelter < ApplicationRecord
   end
 
   def has_pending_pets?
-    if self.pets.where("status = pending")
+    require "pry"; binding.pry
+    if self.pets.find {|pet| pet.status.include?("Pending")}
       return true
     else
       return false

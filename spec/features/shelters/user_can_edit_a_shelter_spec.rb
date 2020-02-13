@@ -72,7 +72,7 @@ RSpec.describe 'As a visitor' do
             expect(page).not_to have_content("80220")
         end
 
-        it "will display error message if any fields are missing" do 
+        it "will display error message if any fields are missing" do
             visit "/shelters/#{@shelter3.id}"
 
             expect(current_path).to eq("/shelters/#{@shelter3.id}")
@@ -87,7 +87,7 @@ RSpec.describe 'As a visitor' do
 
             click_on "Update Shelter"
 
-            expect(page).to have_content("City can't be blank and Zip can't be blank") 
+            expect(page).to have_content("City can't be blank and Zip can't be blank")
         end
     end
 end
