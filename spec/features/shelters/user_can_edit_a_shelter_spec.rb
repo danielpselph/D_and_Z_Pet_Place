@@ -11,20 +11,24 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
     describe 'When I visit shelter show page' do
         before :each do
-            @shelter1 = Shelter.create!(name: 'Sebastians',
+            @shelter1 = Shelter.create(name: 'Sebastians',
                                         address: '123 Abc St',
                                         city: 'Denver',
                                         state: 'CO',
                                         zip: '90210')
-            @shelter2 = Shelter.create!(name: 'bob',
+            @shelter2 = Shelter.create(name: 'bob',
                                         address: '1111 Ash St',
                                         city: 'Denver',
                                         state: 'CO',
                                         zip: '80220')
-
+            @shelter3 = Shelter.create(name: 'Martha Stewart',
+                                        address: '1300 Metropolitan',
+                                        city: 'Leavenworth',
+                                        state: 'KS',
+                                        zip: '66048')
         end
 
-    it 'I should see a link to "Edit"' do
+    it 'I should see a link to "Edit" ' do
 
         visit "/shelters/#{@shelter2.id}"
 
@@ -66,6 +70,24 @@ RSpec.describe 'As a visitor' do
             expect(page).not_to have_content("Denver")
             expect(page).not_to have_content("CO")
             expect(page).not_to have_content("80220")
+        end
+
+        it "will display error message if any fields are missing" do
+            visit "/shelters/#{@shelter3.id}"
+
+            expect(current_path).to eq("/shelters/#{@shelter3.id}")
+
+            click_on "Edit"
+
+            fill_in "Name", with: "Wesley Snipe"
+            fill_in "Address", with: "123 Prison Ave"
+            fill_in "State", with: "AZ"
+            fill_in "City", with: ""
+            fill_in "Zip", with: ""
+
+            click_on "Update Shelter"
+
+            expect(page).to have_content("City can't be blank and Zip can't be blank")
         end
     end
 end

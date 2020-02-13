@@ -6,10 +6,16 @@ class Favorites
   end
 
   def total_count
-    @contents.length
+    contents.length
   end
 
   def add_pet(id)
-    @contents << id
+    contents << id
+  end
+
+  def delete_favorites(pet_ids)
+    pet_ids.each do |id|
+      contents.delete(id.to_i)
+    end
   end
 end

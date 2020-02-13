@@ -20,10 +20,17 @@ class FavoritesController < ApplicationController
 
   def index
     # require "pry"; binding.pry
+    apps = AdoptionPet.all
+    @app_pets = []
+    if !apps.nil?
+      apps.each do |app|
+        @app_pets << Pet.find(app[:pet_id])
+      end
+    end
+    @app_pets.uniq
     if session[:favorites] == nil || session[:favorites].empty?
       @pets = nil
     else
-      # require "pry"; binding.pry
       @pets = Pet.find(session[:favorites])
     end
   end

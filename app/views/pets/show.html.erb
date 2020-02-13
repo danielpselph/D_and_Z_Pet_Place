@@ -15,3 +15,8 @@
 <% else %>
   <%= button_to "Favorite Pet", "/favorites/#{@pet.id}?add=true", method: :patch %>
 <% end %>
+<% if @pet.adoptions.empty?%>
+  <h4>No Open Applications</h4>
+<% else %>
+  <%= link_to "View All Applications", "/pets/#{@pet.id}/adoptions" %>
+<% end %>

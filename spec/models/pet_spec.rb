@@ -9,8 +9,10 @@ describe Pet, type: :model do
     it { should validate_presence_of :description}
     it { should validate_presence_of :status}
   end
-  
+
   describe 'relationships' do
     it { should belong_to :shelter }
+    it { should have_many :adoption_pets}
+    it { should have_many(:adoptions).through(:adoption_pets) }
   end
 end

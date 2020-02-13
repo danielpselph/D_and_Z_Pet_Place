@@ -8,9 +8,9 @@
 <%= button_to "Pets", "/shelters/#{@shelter.id}/pets", method: :get %>
 
 <%= button_to "Edit", "/shelters/#{@shelter.id}/edit", method: :get %>
-
-<%= button_to "Delete", "/shelters/#{@shelter.id}", method: :destroy %>
-
+<% if @shelter.has_pending_pets? == false %>
+  <%= button_to "Delete", "/shelters/#{@shelter.id}", method: :destroy %>
+  <% end %>
 <%= link_to 'Add Review', "/shelters/#{@shelter.id}/reviews/new", method: :get %>
 
 
@@ -21,12 +21,12 @@
 <% @shelter.reviews.each do |review| %>
 
   <section id="review-<%= review.id %>">
-    <h4>Name: <%= link_to "#{review.title}", "/reviews/#{review.id}" %></h4>
-    <p> Content: <%= review.content %>"
-        Rating: <%= review.rating %>"
+    <h4>Title: <%= review.title %></h4>
+    <p> Content: <%= review.content %><br>
+        Rating: <%= review.rating %>
     </p>
     <p>
-    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: :get %>
+    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: :get %><br>
     <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: :delete %>
 
     </p>

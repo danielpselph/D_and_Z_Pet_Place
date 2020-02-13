@@ -75,5 +75,30 @@ RSpec.describe "create shelter pet", type: :feature do
 
       expect(page).to have_content("Marcus")
     end
+
+    it "will display error message if fields missing" do
+
+      shelter_1 = Shelter.create(name: "STANKY dawgs",
+                                  address: "42 Wallaby Way",
+                                  city: "Sydney",
+                                  state: "OZ",
+                                  zip: "12345",
+                                )
+
+      visit "/shelters/#{shelter_1.id}/pets"
+      
+      click_on "Create Pet"
+       
+      fill_in 'image', with: 'https://image.shutterstock.com/image-photo/beagle-running-over-green-meadow-600w-1563583912.jpg'
+      fill_in 'name', with: 'Marcus'
+      fill_in 'description', with: ''
+      fill_in 'age', with: ''
+      fill_in 'sex', with: 'F'
+
+      click_on "Create Pet"
+
+      expect(page).to have_content("Age can't be blank and Description can't be blank")
+    end
+    
   end
 end
