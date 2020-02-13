@@ -79,7 +79,7 @@ describe Shelter, type: :model do
                           qualifications: "I like dogs",
                           pets: [@pet_2, @pet_3]
                           )
-      @app_1 = Adoption.create!(name: "Boris",
+      @app_2 = Adoption.create!(name: "Boris",
                           address: "4040 Main St.",
                           city: "Birmingham",
                           state: "AL",

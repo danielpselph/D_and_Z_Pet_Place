@@ -13,8 +13,9 @@
   <% end %>
 <%= link_to 'Add Review', "/shelters/#{@shelter.id}/reviews/new", method: :get %>
 
-
-
+Number of Pets: <%= @shelter.pet_count %><br>
+Number of Open Applications: <%= @shelter.app_count %><br>
+Average Review Rating: <%= @shelter.average_rating %><br>
 
 <h1>All Reviews</h1>
 
