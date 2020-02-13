@@ -51,8 +51,8 @@ describe Shelter, type: :model do
                           sex: "M",
                           description: "Absolute unit.",
                           image: "https://nationalpostcom.files.wordpress.com/2019/12/tarzan-2.jpg?quality=80&strip=all&w=780&zoom=2",
-                          shelter_id: "#{@shelter_3.id}",
-                          status: "pending"
+                          shelter_id: "#{@shelter_2.id}",
+                          status: "Pending"
                           )
       @pet_2 = Pet.create(name: "Peter",
                           age: "8 years",
@@ -70,10 +70,32 @@ describe Shelter, type: :model do
                           shelter_id: "#{@shelter_3.id}",
                           status: "Available"
                           )
+      @app_1 = Adoption.create!(name: "Sandy",
+                          address: "4040 Main St.",
+                          city: "Birmingham",
+                          state: "AL",
+                          zip: "20400",
+                          phone: "6669407322",
+                          qualifications: "I like dogs",
+                          pets: [@pet_2, @pet_3]
+                          )
+      @app_1 = Adoption.create!(name: "Boris",
+                          address: "4040 Main St.",
+                          city: "Birmingham",
+                          state: "AL",
+                          zip: "20400",
+                          phone: "6669407322",
+                          qualifications: "I like dogs",
+                          pets: [@pet_2, @pet_3]
+                          )
     end
 
     it "can count number of pets at the shelter" do
-      expect(@shelter_3.pet_count).to eq(3)
+      expect(@shelter_3.pet_count).to eq(2)
+    end
+
+    it "can count number of apps at the shelter" do
+      expect(@shelter_3.app_count).to eq(2)
     end
 
     it "can return average rating" do
@@ -84,6 +106,9 @@ describe Shelter, type: :model do
       expect(@shelter_3.has_pending_pets?).to eq(false)
     end
 
+    it 'should return true for has pending pets when pets have been approved' do
+      expect(@shelter_2.has_pending_pets?).to eq(true)
+    end
 
   end
 end

@@ -35,34 +35,28 @@ RSpec.describe "shelter id page", type: :feature do
             end
 
             expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit")
-        end  
+        end
 
-        it 'will display and error message if user does not enter all required info and returned to edit page' do 
+        it 'will display and error message if user does not enter all required info and returned to edit page' do
 
             visit "/shelters/#{@shelter_1.id}/reviews/#{@review_1.id}/edit"
-    
+
             fill_in :title, with: "New Title"
             fill_in :rating, with: 3
             fill_in :content, with: ""
 
             click_on "Add Review"
-    
-            # within "#review-#{@review_1.id}" do
-            #     expect(page).to have_link("Edit Review")
-            #     click_on "Edit Review"
-            # end
-    
-            # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
-            expect(page).to have_content("All fields must be completed to submit review.")  
-            # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
-            expect(page).to have_button("Add Review") 
+
+            expect(page).to have_content("All fields must be completed to submit review.")
+
+            fill_in :title, with: "Ugly Dog"
+            fill_in :rating, with: 2
+            fill_in :content, with: "The dog you sold is ugly"
+            fill_in :image, with: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkoYC686pLn-B0Dtd21trr4iO0yL3zih-UfkeVI0lGgpU5EDmp"
+
+            click_on "Add Review"
+
+            expect(current_path).to eq("/shelters/#{@shelter_1.id}")
         end
-    end  
+    end
 end
-
-# User Story 6, Edit a Shelter Review, cont.
-
-# As a visitor,
-# When I fail to enter a title, a rating, and/or content in the edit shelter review form, but still try to submit the form
-# I see a flash message indicating that I need to fill in a title, rating, and content in order to edit a shelter review
-# And I'm returned to the edit form to edit that review
