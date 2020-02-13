@@ -94,32 +94,32 @@ pet_8 = Pet.create(name: "Puff the Magic Dragon",
   shelter_id: "#{shelter_3.id}",
   status: "Take her if you can."
   )
-@review_1 = Review.create(title: "peeeeyew",
+review_1 = Review.create(title: "peeeeyew",
   rating: 1,
   content: "The dog you sold me stinks. Like, literally.",
   shelter_id: "#{shelter_1.id}",
   image: " ")
-@review_2 = Review.create(title: "Ugly Dog",
+review_2 = Review.create(title: "Ugly Dog",
   rating: 4,
   content: "My new pal scruff is a dream, but damn is that boy ugly.",
   shelter_id: "#{shelter_1.id}",
   image: " ")
-@review_3 = Review.create(title: "OUT OF CONTROL",
+review_3 = Review.create(title: "OUT OF CONTROL",
   rating: 5,
   content: "They really did let the dogs out. They were everywhere. I almost died.",
   shelter_id: "#{shelter_2.id}",
   image: " ")
-@review_4 = Review.create(title: "Where...?",
+review_4 = Review.create(title: "Where...?",
   rating: 1,
   content: "I couldn't find it on the map.",
   shelter_id: "#{shelter_2.id}",
   image: " ")
-@review_5 = Review.create(title: "Found my guilty pleasure.",
+review_5 = Review.create(title: "Found my guilty pleasure.",
   rating: 3,
   content: "They didn't have any dogs. Apparently their last intern let them all out, screaming 'Fly, my pretties!' Tasty dog treats tho.",
   shelter_id: "#{shelter_2.id}",
   image: " ")
-@review_6 = Review.create(title: "Man, what a rascal.",
+review_6 = Review.create(title: "Man, what a rascal.",
   rating: 2,
   content: "My home was happier before I adopted from here. What a pain.",
   shelter_id: "#{shelter_3.id}",

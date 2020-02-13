@@ -85,5 +85,29 @@ RSpec.describe "When a user adds pets to their favorite" do
         expect(page).to_not have_content("Boo")
       end
     end
+
+    it 'should pop flash notices for unselected pets and incomplete fields' do
+      visit "/pets"
+
+      within("#pet-#{@pet_3.id}") do
+        click_button "Favorite Pet"
+      end
+
+      visit "/favorites"
+      click_link "Adopt!"
+
+      click_on "Create New Adoption Application"
+
+      expect(page).to have_content("must select pets.")
+
+      within("div#pet-#{@pet_3.id}") do
+        check :adopt_pets_
+      end
+      
+      click_on "Create New Adoption Application"
+
+      expect(page).to have_content("All fields must be completed to submit adoption application.")
+    end
+
   end
 end

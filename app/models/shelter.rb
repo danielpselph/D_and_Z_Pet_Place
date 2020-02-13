@@ -19,4 +19,8 @@ class Shelter < ApplicationRecord
     end
   end
 
+  def app_count
+    pets.joins(:adoption_pets).uniq.count
+  end
+
 end
