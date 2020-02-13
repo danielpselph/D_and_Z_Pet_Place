@@ -63,4 +63,8 @@ RSpec.describe 'As a visitor to favorites index', method: :feature do
       expect(page).to have_content("Boo")
     end
   end
+
+  it 'should not have adopt button if there are no favorites'
+
+  end 
 end
