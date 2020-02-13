@@ -33,6 +33,25 @@ class AdoptionsController < ApplicationController
       @adoption = Adoption.find(params[:id])
     end
 
+    def index
+      @pet = Pet.find(params[:pet_id])
+    end
+
+    def update
+      pet = Pet.find(params[:pet_id])
+      adoption = Adoption.find(params[:adoption_id])
+
+      if params[:approve]
+        pet.status = "Pending. On hold for #{adoption.name}."
+        pet.save
+        redirect_to "/pets/#{pet.id}"
+      else
+        pet.status = "Adoptable"
+        pet.save
+        redirect_to "/adoptions/#{adoption.id}"
+      end
+    end
+
     private
       def adoption_params
         params.permit(:name,

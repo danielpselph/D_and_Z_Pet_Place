@@ -6,5 +6,12 @@
 <p>Phone: <%= @adoption.phone %> </p>
 <p>Qualifications: <%= @adoption.qualifications %> </p>
 <% @adoption.pets.each do |pet| %>
-  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+  <section id= "pet-<%= pet.id %>">
+    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+    <% if pet.status.include?("Pending") %>
+      <%= button_to "Unapprove Application", "/pets/#{pet.id}/adoptions/#{@adoption.id}?unapprove=true", method: :patch %>
+    <% else %>
+      <%= button_to "Approve Application", "/pets/#{pet.id}/adoptions/#{@adoption.id}?approve=true", method: :patch %>
+    <% end %>
+  </section>
 <% end %>

@@ -28,7 +28,6 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    # shelter.update(shelter_params)
     pet.update(pet_params)
 
     redirect_to "/pets/#{pet.id}"

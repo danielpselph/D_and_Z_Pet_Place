@@ -21,12 +21,12 @@
 <% @shelter.reviews.each do |review| %>
 
   <section id="review-<%= review.id %>">
-    <h4>Name: <%= link_to "#{review.title}", "/reviews/#{review.id}" %></h4>
-    <p> Content: <%= review.content %>"
-        Rating: <%= review.rating %>"
+    <h4>Title: <%= review.title %></h4>
+    <p> Content: <%= review.content %><br>
+        Rating: <%= review.rating %>
     </p>
     <p>
-    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: :get %>
+    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: :get %><br>
     <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: :delete %>
 
     </p>

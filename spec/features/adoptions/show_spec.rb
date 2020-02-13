@@ -24,7 +24,7 @@ RSpec.describe 'As a visitor to favorites index', method: :feature do
       shelter_id: "#{@shelter_1.id}",
       status: "Available"
       )
-    @app_1 = Adoption.create(name: "Sandy",
+    @app_1 = Adoption.create!(name: "Sandy",
       address: "4040 Main St.",
       city: "Birmingham",
       state: "AL",
@@ -36,6 +36,7 @@ RSpec.describe 'As a visitor to favorites index', method: :feature do
   end
 
   it 'should show favorited pets' do
+
     visit "/adoptions/#{@app_1.id}"
 
     expect(page).to have_content(@app_1.name)
@@ -47,5 +48,44 @@ RSpec.describe 'As a visitor to favorites index', method: :feature do
     expect(page).to have_content(@app_1.qualifications)
     expect(page).to have_content("Fido")
     expect(page).to have_content("Boo")
+  end
+
+  it 'should be able to approve adoption' do
+
+    visit "/adoptions/#{@app_1.id}"
+
+    within "#pet-#{@pet_1.id}" do
+      expect(page).to have_button("Approve Application")
+    end
+
+    within "#pet-#{@pet_3.id}" do
+      expect(page).to have_button("Approve Application")
+      click_on "Approve Application"
+    end
+
+    expect(current_path).to eq("/pets/#{@pet_3.id}")
+
+    expect(page).to have_content("Pending")
+    expect(page).to have_content("On hold for Sandy")
+  end
+  it 'should be able to approve adoption' do
+
+    visit "/adoptions/#{@app_1.id}"
+
+    within "#pet-#{@pet_3.id}" do
+      click_on "Approve Application"
+    end
+
+    visit "/adoptions/#{@app_1.id}"
+
+    within "#pet-#{@pet_3.id}" do
+      click_on "Unapprove Application"
+    end
+
+    expect(current_path).to eq("/adoptions/#{@app_1.id}")
+
+    visit "/pets/#{@pet_3.id}"
+
+    expect(page).to have_content("Adoptable")
   end
 end
