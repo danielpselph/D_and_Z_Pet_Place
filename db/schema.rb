@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20200211190113) do
     t.string "image"
     t.string "age"
     t.string "sex"
+    t.bigint "shelter_id"
     t.string "description"
     t.string "status"
-    t.bigint "shelter_id"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20200211190113) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.bigint "shelter_id"
+    t.string "image"
     t.index ["shelter_id"], name: "index_reviews_on_shelter_id"
   end
 

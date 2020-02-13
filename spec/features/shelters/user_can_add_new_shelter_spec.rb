@@ -41,5 +41,21 @@ RSpec.describe "new shelter page", type: :feature do
       expect(page).to have_content("12345")
 
     end
+
+    it "I see an error message if mistakes made when creating shelter" do 
+      visit "/shelters/new"
+
+      expect(page).to have_content("Name")
+      expect(page).to have_content("Address")
+      expect(page).to have_content("City")
+      expect(page).to have_content("State")
+      expect(page).to have_content("Zip")
+      fill_in :name, with: ""
+      fill_in :address, with: "321 Bca Ave"
+      fill_in :city, with: "Denver"
+      fill_in :zip, with: "85048"
+      click_on "New Shelter"
+      expect(page).to have_content("Name can't be blank and State can't be blank")
+    end 
   end
 end
