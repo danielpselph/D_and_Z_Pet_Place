@@ -28,6 +28,10 @@ RSpec.describe "shelter id page", type: :feature do
       expect(page).to have_button("Back to Shelters")
       expect(page).to have_button("Back to Pets")
 
+      expect(page).to have_content("Number of Pets:")
+      expect(page).to have_content("Number of Open Applications:")
+      expect(page).to have_content("Average Review Rating:")
+
       expect(page).to have_content(@shelter_1.name)
       expect(page).to have_content(@shelter_1.address)
       expect(page).to have_content(@shelter_1.city)
@@ -90,8 +94,8 @@ RSpec.describe "shelter id page", type: :feature do
 
       visit "/shelters/#{@shelter_1.id}"
 
-        expect(page).to have_link("Add Review") 
-        
+        expect(page).to have_link("Add Review")
+
         click_on "Add Review"
 
         fill_in :title, with: "TitleTitle"
@@ -101,9 +105,9 @@ RSpec.describe "shelter id page", type: :feature do
         click_on "Add Review"
 
         # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
-        expect(page).to have_content("All fields must be completed to submit review.")  
+        expect(page).to have_content("All fields must be completed to submit review.")
         # expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
-        expect(page).to have_button("Add Review") 
+        expect(page).to have_button("Add Review")
 
     end
   end
